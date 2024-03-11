@@ -1,0 +1,48 @@
+#!/bin/sh
+
+if test -z "$1"; then
+    printf "\n./configure: usage: ./configure <srcdir>\n\n"
+    exit 1
+fi
+
+# System paths:
+CMAKE=/usr/bin/cmake
+BUILD_TYPE=Debug
+INSTALL_PREFIX=/tmp/usr
+PYTHON3=/usr/bin/python3
+
+ARGS="$(
+cat <<EOF | grep -v '#.*'
+  # Developer warnings:
+  -Wdev
+  -Wdeprecated
+  # System paths:
+  -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+  -DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX
+  -DPython3_EXECUTABLE=$PYTHON3
+  # Whether to enable CUDA (switch to OFF if the build takes too long):
+  -DWITH_CUDA=ON
+  # Which libraries to build. Valid values are:
+  #   "GUMATH" ==> build ndtypes, xnd, gumath. (default)
+  #   "XND" ==> build ndtypes, xnd.
+  #   "NDTYPES" ==> build ndtypes.
+  # If any expert packaging option is active, LIB_SELECT must be undefined.
+  # -DLIB_SELECT=GUMATH
+  # Rarely needed expert options for module packaging. By default, the
+  # modules are only built for running the long library tests and are not
+  # installed:
+  # -DDLIB_SYSTEM_WITH_MOD_HEADERS=OFF
+  # -DLIB_XNDLIB_WITH_MOD_HEADERS=OFF
+  # -DMOD_NDTYPES_WITH_SYSTEM_LIB=OFF
+  # -DMOD_XND_WITH_SYSTEM_LIB=OFF
+  # -DMOD_GUMATH_WITH_SYSTEM_LIB=OFF
+  # -DMOD_NDTYPES_WITH_XNDLIB=OFF
+  # -DMOD_XND_WITH_XNDLIB=OFF
+  # -DMOD_GUMATH_WITH_XNDLIB=OFF
+  # Debugging expert options:
+  # -LAH
+  # --trace-source=CMakeLists.txt
+EOF
+)"
+
+$CMAKE $ARGS $1

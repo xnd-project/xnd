@@ -1,0 +1,12 @@
+#ifndef XND_CONFIG_H
+#define XND_CONFIG_H
+
+#cmakedefine HAVE_CUDA ${HAVE_CUDA}
+
+#cmakedefine HAVE_UNISTD_H ${HAVE_UNISTD_H}
+
+#cmakedefine HAVE_PTHREAD_H ${HAVE_PTHREAD_H}
+
+#cmakedefine WITH_VALGRIND ${WITH_VALGRIND}
+
+#endif  /* XND_CONFIG_H */

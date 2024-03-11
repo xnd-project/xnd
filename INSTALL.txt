@@ -1,0 +1,76 @@
+The whole build is handled by cmake, which supports a multitude of build
+programs.  Since the Python modules are used for testing, they are built
+by default if Python is found.
+
+Here are a couple of common usage scenarios:
+
+Unix: in-tree development
+=========================
+
+For convenience, edit the ./configure cmake-wrapper script and set the build
+type and the Python root directory.
+
+./configure .
+make -j10
+
+make ntest
+make xtest
+make npytest
+make xpytest
+make gpytest
+
+# Do NOT run this outside of the xnd directory!
+./distclean.sh
+
+
+Release install
+===============
+
+The Python modules are not installed, they are just for testing. Single-Config
+generators default to "Release" automatically.  Multi-Config generators (except
+for "Ninja Multi-Config") default to "Debug" and require an explicit build type.
+
+Unix: Single-Config generator (make)
+------------------------------------
+
+mkdir build
+cd build
+cmake ..
+make -j10
+
+# Tests: optional
+make ntest
+make xtest
+
+# Python Tests: optional
+make npytest
+make xpytest
+make gpytest
+
+make install
+
+
+Portable version
+----------------
+
+This will use "make" on Unix and "msbuild" on Windows.
+
+# Windows only:
+vcvarsall x64
+
+# All:
+mkdir build
+cd build
+cmake ..
+cmake --build . --config Release --target all
+
+# Tests: optional
+cmake --build . --config Release --target ntest
+cmake --build . --config Release --target xtest
+
+# Python Tests: optional
+cmake --build . --config Release --target npytest
+cmake --build . --config Release --target xpytest
+cmake --build . --config Release --target gpytest
+
+cmake --install .
