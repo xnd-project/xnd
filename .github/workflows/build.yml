@@ -61,7 +61,7 @@ jobs:
           cmake --build . --config Release --target gptest
 
   ubuntu_x64:
-    name: 'OSX x64'
+    name: 'Ubuntu x64'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
