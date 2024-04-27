@@ -22,9 +22,9 @@ jobs:
           cmake --build . --config Release --target all
           cmake --build . --config Release --target ntest
           cmake --build . --config Release --target xtest
-          cmake --build . --config Release --target npytest
-          cmake --build . --config Release --target xpytest
-          cmake --build . --config Release --target gpytest
+          cmake --build . --config Release --target nptest
+          cmake --build . --config Release --target xptest
+          cmake --build . --config Release --target gptest
         shell: cmd
 
   vcbuild32:
@@ -39,9 +39,9 @@ jobs:
           cmake --build . --config Release --target all
           cmake --build . --config Release --target ntest
           cmake --build . --config Release --target xtest
-          cmake --build . --config Release --target npytest
-          cmake --build . --config Release --target xpytest
-          cmake --build . --config Release --target gpytest
+          cmake --build . --config Release --target nptest
+          cmake --build . --config Release --target xptest
+          cmake --build . --config Release --target gptest
         shell: cmd
 
   osx_x64:
@@ -56,12 +56,12 @@ jobs:
           cmake --build . --config Release --target all
           cmake --build . --config Release --target ntest
           cmake --build . --config Release --target xtest
-          cmake --build . --config Release --target npytest
-          cmake --build . --config Release --target xpytest
-          cmake --build . --config Release --target gpytest
+          cmake --build . --config Release --target nptest
+          cmake --build . --config Release --target xptest
+          cmake --build . --config Release --target gptest
 
   ubuntu_x64:
-    name: 'OSX x64'
+    name: 'Ubuntu x64'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -72,6 +72,6 @@ jobs:
           cmake --build . --config Release --target all
           cmake --build . --config Release --target ntest
           cmake --build . --config Release --target xtest
-          cmake --build . --config Release --target npytest
-          cmake --build . --config Release --target xpytest
-          cmake --build . --config Release --target gpytest
+          cmake --build . --config Release --target nptest
+          cmake --build . --config Release --target xptest
+          cmake --build . --config Release --target gptest
