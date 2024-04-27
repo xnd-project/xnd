@@ -1,3 +1,4 @@
+
 xnd
 ===
 
@@ -24,7 +25,7 @@ the libraries are not Python-specific in any way.
 - gumath
 
 
-The libraries and modules were written by `Stefan Krah <https://github.com/skrah>`_.
+The libraries and modules were written by [Stefan Krah](https://github.com/skrah).
 
-Funding for these projects initially came from `Anaconda Inc. <https://www.anaconda.com/>`_
-and now from `Quansight LLC <https://www.quansight.com/>`_.
+Funding for these projects initially came from [Anaconda Inc.](https://www.anaconda.com/)
+and now from [Quansight LLC](https://www.quansight.com/).
