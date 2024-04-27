@@ -15,9 +15,9 @@ make -j10
 
 make ntest
 make xtest
-make npytest
-make xpytest
-make gpytest
+make nptest
+make xptest
+make gptest
 
 # Do NOT run this outside of the xnd directory!
 ./distclean.sh
@@ -43,9 +43,9 @@ make ntest
 make xtest
 
 # Python Tests: optional
-make npytest
-make xpytest
-make gpytest
+make nptest
+make xptest
+make gptest
 
 make install
 
@@ -69,8 +69,8 @@ cmake --build . --config Release --target ntest
 cmake --build . --config Release --target xtest
 
 # Python Tests: optional
-cmake --build . --config Release --target npytest
-cmake --build . --config Release --target xpytest
-cmake --build . --config Release --target gpytest
+cmake --build . --config Release --target nptest
+cmake --build . --config Release --target xptest
+cmake --build . --config Release --target gptest
 
 cmake --install .
